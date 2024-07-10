@@ -1,18 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Login from "./page/Login";
+import Product from "./page/Product";
+import NotFound from "./page/NotFound";
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-     <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    </>
-  )
+    const isLoggedIn = useSelector((state) => state.isLoggedIn);
+    
+    return (
+        <>
+            <BrowserRouter>
+                <Routes>
+                    <Route
+                        path="/login"
+                        element={isLoggedIn ? <Navigate to="/" /> : <Login />}
+                    />
+                    <Route path="/product" element={<Product />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </BrowserRouter>
+        </>
+    );
 }
 
-export default App
+export default App;
