@@ -12,9 +12,10 @@ function App() {
                 <Routes>
                     <Route
                         path="/login"
-                        element={isLoggedIn ? <Navigate to="/" /> : <Login />}
+                        element={isLoggedIn ? <Navigate to="/product" /> : <Login />}
                     />
-                    <Route path="/product" element={<Product />} />
+                    <Route path="/product" element={isLoggedIn ? <Product/> :  <Navigate to="/login" />} />
+                    <Route path="/" element={<Navigate to="/login" />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>

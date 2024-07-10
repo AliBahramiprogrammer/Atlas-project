@@ -11,3 +11,29 @@
         rgba(0, 212, 255, 1) 100%
     );
 }
+
+@font-face {
+    font-family: "proximanova";
+    src: url("../public/font/Fontspring-DEMO-proximanova-medium.otf")
+        format("opentype");
+}
+
+body {
+    font-family: "proximanova", sans-serif;
+}
+
+
+#strikethrough {
+    position: relative;
+}
+
+#strikethrough::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    right: 0;
+    border-top: 2px solid;
+    border-color: inherit;
+    transform:rotate(15deg);
+}
