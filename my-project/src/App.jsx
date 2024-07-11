@@ -16,6 +16,7 @@ function App() {
                     />
                     <Route path="/product" element={isLoggedIn ? <Product/> :  <Navigate to="/login" />} />
                     <Route path="/" element={<Navigate to="/login" />} />
+                    <Route path="/index.html" element={<Navigate to="/login" />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
